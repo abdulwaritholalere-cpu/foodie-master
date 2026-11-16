@@ -1,88 +1,85 @@
-import React from "react";
-import Img from "../../assets/biryani.png";
-import Img2 from "../../assets/biryani2.png";
-import Img3 from "../../assets/biryani4.png";
-import StarRatings from "react-star-ratings";
-const ServicesData = [
+import image1 from "../../assets/biryani3.png";
+import image2 from "../../assets/biryani5.png";
+import image3 from "../../assets/biryani2.png";
+const dishes = [
   {
-    id: 1,
-    img: Img2,
-    name: "Biryani",
-    description:
-      "Lorem ipsum dolor sit amet ipsum dolor sit ametipsum dolor sit amet ipsum dolor sit amet.",
+    image: image1,
+    name: "Classic biryani",
+    tag: "The comfort classic",
+    text: "A comforting plate of aromatic rice and warming spices, with all the familiar flavours of biryani.",
+    detail:
+      "A great place to start exploring the menu. Confirm the available protein options and spice level with the restaurant.",
   },
   {
-    id: 2,
-    img: Img2,
-    name: "Chiken kari",
-    description:
-      "Lorem ipsum dolor sit amet ipsum dolor sit ametipsum dolor sit amet ipsum dolor sit amet",
+    image: image2,
+    name: "House biryani",
+    tag: "A little extra flavour",
+    text: "A generous biryani plate with fragrant rice and a rich, spice-forward character.",
+    detail:
+      "Explore the house take on a favourite dish. Ask the restaurant about today's ingredients and accompaniments.",
   },
   {
-    id: 3,
-    img: Img2,
-    name: "Cold Cofee",
-    description:
-      "Lorem ipsum dolor sit amet ipsum dolor sit ametipsum dolor sit amet ipsum dolor sit amet",
+    image: image3,
+    name: "Special biryani",
+    tag: "Something to savour",
+    text: "An inviting plate for the days when only a satisfying, full-flavoured biryani will do.",
+    detail:
+      "Availability and preparation may vary. Confirm the current special, ingredients and portion size before ordering.",
   },
 ];
-const Services = () => {
+export default function Services() {
   return (
-    <>
-      <span id="services"></span>
-      <div className="py-10">
-        <div className="container">
-          <div className="text-center mb-20 max-w-[400px] mx-auto">
-            <p className="text-sm bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary ">
-              Our Services
-            </p>
-            <h1 className="text-3xl font-bold">Services</h1>
-            <p className="text-xs text-gray-400">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Perspiciatis delectus architecto error nesciunt,
-            </p>
+    <section
+      className="section menu-section"
+      id="services"
+      aria-labelledby="menu-title"
+    >
+      <div className="wrap">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Find your flavour</p>
+            <h2 id="menu-title">
+              Big on flavour.
+              <br />
+              <em>Easy to love.</em>
+            </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14 md:gap-5 place-items-center">
-            {ServicesData.map((service) => (
-              <div
-                data-aos="zoom-in"
-                data-aos-duration="300"
-                className="rounded-2xl bg-white dark:bg-gray-800 hover:bg-primary dark:hover:bg-primary hover:text-white relative shadow-xl duration-high group max-w-[300px]"
-              >
-                <div className="h-[100px]">
-                  <img
-                    src={service.img}
-                    alt=""
-                    className="max-w-[200px] block mx-auto transform -translate-y-14
-                  group-hover:scale-105 group-hover:rotate-6 duration-300"
-                  />
-                </div>
-                <div className="p-4 text-center">
-                  <div className="w-full ">
-                    {/* <StarRatings
-                      rating={4}
-                      starRatedColor="yellow"
-                      isSelectable={false}
-                      starHoverColor="yellow"
-                      // starSelectingHoverColor
-                      starDimension="20px"
-                      changeRating={() => {}}
-                      numberOfStars={5}
-                      name="rating"
-                    /> */}
-                  </div>
-                  <h1 className="text-xl font-bold">{service.name}</h1>
-                  <p className="text-gray-500 group-hover:text-white duration-high text-sm line-clamp-2">
-                    {service.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <p>
+            A few favourites for your next food mood.
+            <br />
+            Take a closer look and find your kind of plate.
+          </p>
         </div>
+        <div className="dish-grid">
+          {dishes.map((dish, i) => (
+            <article className="dish-card" key={dish.name}>
+              <div className="dish-image">
+                <span className="dish-number">0{i + 1}</span>
+                <img
+                  src={dish.image}
+                  alt={`${dish.name} with spiced rice`}
+                  width="300"
+                  height="300"
+                  loading="lazy"
+                />
+              </div>
+              <div className="dish-copy">
+                <p className="eyebrow">{dish.tag}</p>
+                <h3>{dish.name}</h3>
+                <p>{dish.text}</p>
+                <details>
+                  <summary>Dish details</summary>
+                  <p>{dish.detail}</p>
+                </details>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p className="menu-disclaimer">
+          Menu showcase · Online ordering is currently unavailable. Please
+          confirm ingredients and allergens before ordering.
+        </p>
       </div>
-    </>
+    </section>
   );
-};
-
-export default Services;
+}

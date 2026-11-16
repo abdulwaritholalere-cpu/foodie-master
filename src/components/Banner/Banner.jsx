@@ -1,76 +1,48 @@
-import React from "react";
-import BiryaniImg from "../../assets/biryani5.png";
-import Vector from "../../assets/vector3.png";
-import { GrSecure } from "react-icons/gr";
-import { IoFastFood } from "react-icons/io5";
-import { GiFoodTruck } from "react-icons/gi";
-
-const Banner = () => {
-  const bgImage = {
-    backgroundImage: `url(${Vector})`,
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    height: "100%",
-    width: "100%",
-  };
+import image from "../../assets/biryani4.png";
+import { FiArrowUpRight } from "react-icons/fi";
+export default function Banner() {
   return (
-    <>
-      <div className="min-h-[550px]">
-        <div className="min-h-[550px] flex justify-center items-center backdrop-blur-xl py-12 sm:py-0 ">
-          <div
-            data-aos="slide-up"
-            data-aos-duration="300"
-            className="container"
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {/* Image section */}
-              <div>
-                <img
-                  src={BiryaniImg}
-                  alt="biryani img"
-                  className="max-w-[430px] w-full mx-auto drop-shadow-[-10px_10px_12px_rgba(0,0,0,1)]"
-                />
-              </div>
-              {/* text content section */}
-              <div className="flex flex-col justify-center gap-6 sm:pt-0">
-                <h1 className="text-3xl sm:text-4xl font-bold">
-                  Lorem, ipsum dolor.
-                </h1>
-                <p className="text-sm text-gray-500 tracking-wide leading-5">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Eaque reiciendis inventore iste ratione ex alias quis magni at
-                  optio
-                  <br />
-                  <br />
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Beatae ab sed, exercitationem minima aliquid eligendi
-                  distinctio? Fugit repudiandae numquam hic quo recusandae.
-                  Excepturi totam ad nam velit quasi quidem aspernatur.
-                </p>
-                <div className="flex gap-6">
-                  <div>
-                    <GrSecure className="text-4xl h-20 w-20 shadow-sm p-5 rounded-full bg-violet-100 dark:bg-violet-400" />
-                  </div>
-                  <div>
-                    <IoFastFood className="text-4xl h-20 w-20 shadow-sm p-5 rounded-full bg-orange-100 dark:bg-orange-400" />
-                  </div>
-                  <div>
-                    <GiFoodTruck className="text-4xl h-20 w-20 shadow-sm p-5 rounded-full bg-green-100 dark:bg-green-400" />
-                  </div>
-                </div>
-                <div>
-                  <button className="bg-gradient-to-r from-primary to-secondary text-white py-2 px-4 rounded-full shadow-xl hover:shadow-md">
-                    Order Now
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+    <section
+      className="section about-section"
+      id="about"
+      aria-labelledby="about-title"
+    >
+      <div className="wrap about-grid">
+        <div className="about-image">
+          <img
+            src={image}
+            alt="A colourful plate of biryani"
+            width="440"
+            height="440"
+            loading="lazy"
+          />
+          <span className="round-note">
+            GOOD FOOD
+            <br />
+            GOOD MOOD
+          </span>
+        </div>
+        <div>
+          <p className="eyebrow">Welcome to the Foodie zone</p>
+          <h2 id="about-title">
+            Some things are
+            <br />
+            better <em>with biryani.</em>
+          </h2>
+          <p className="about-copy">
+            The first hint of spice. The aroma of fragrant rice. The joy of a
+            plate you can’t wait to tuck into. Foodie celebrates the simple
+            pleasure of a good meal.
+          </p>
+          <p className="about-copy">
+            Whether you’re revisiting a familiar favourite or exploring a
+            different plate, start here and let your appetite lead the way.
+          </p>
+          <a className="button" href="#services">
+            Discover the menu <FiArrowUpRight aria-hidden="true" />
+          </a>
         </div>
       </div>
-    </>
+    </section>
   );
-};
-
-export default Banner;
+}
