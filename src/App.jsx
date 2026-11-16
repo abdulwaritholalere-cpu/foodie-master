@@ -1,38 +1,60 @@
-import React from "react";
-import Hero from "./components/Hero/Hero";
 import Navbar from "./components/Navbar/Navbar";
-import Services from "./components/Services/Services.jsx";
-import Banner from "./components/Banner/Banner.jsx";
-import AppStore from "./components/AppStore/AppStore.jsx";
-import CoverBanner from "./components/CoverBanner/CoverBanner.jsx";
-import Testimonial from "./components/Testimonial/Testimonial.jsx";
-import Footer from "./components/Footer/Footer.jsx";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import Hero from "./components/Hero/Hero";
+import Services from "./components/Services/Services";
+import Banner from "./components/Banner/Banner";
+import Footer from "./components/Footer/Footer";
 
-const App = () => {
-  React.useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 500,
-      easing: "ease-in-sine",
-      delay: 100,
-    });
-    AOS.refresh();
-  }, []);
-
+export default function App() {
   return (
-    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
+    <>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <Navbar />
-      <Hero />
-      <Services />
-      <Banner />
-      {/* <CoverBanner /> */}
-      <AppStore />
-      <Testimonial />
+      <main id="main">
+        <Hero />
+        <Services />
+        <Banner />
+        <section
+          className="section wrap faq"
+          id="questions"
+          aria-labelledby="faq-title"
+        >
+          <div>
+            <p className="eyebrow">Good to know</p>
+            <h2 id="faq-title">
+              A little more
+              <br />
+              before you dig in.
+            </h2>
+          </div>
+          <div>
+            <details>
+              <summary>How do I explore the menu?</summary>
+              <p>
+                Browse our dishes below and open “Dish details” to learn more
+                about each one.
+              </p>
+            </details>
+            <details>
+              <summary>Can I order through this website?</summary>
+              <p>
+                This website is a menu showcase. Online ordering, payments and
+                delivery booking are not currently available.
+              </p>
+            </details>
+            <details>
+              <summary>What if I have a food allergy?</summary>
+              <p>
+                Ingredients and preparation can vary. Confirm ingredients,
+                allergens and dietary requirements with the restaurant before
+                ordering.
+              </p>
+            </details>
+          </div>
+        </section>
+      </main>
       <Footer />
-    </div>
+    </>
   );
-};
-
-export default App;
+}
